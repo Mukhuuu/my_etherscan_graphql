@@ -1,9 +1,9 @@
-const { ApolloServer } = require("apollo-server");
-const { importSchema } = require("graphql-import");
-const etherDataSource = require("./datasource/ethDataSource");
-const typeDefs = importSchema("./schema.graphql");
+const { ApolloServer } = require("apollo-server"); // Import the ApolloServer class from the apollo-server package
+const { importSchema } = require("graphql-import"); // Import the importSchema function from graphql-import
+const etherDataSource = require("./datasource/ethDataSource"); //Import the etherDataSource module
+const typeDefs = importSchema("./schema.graphql"); // Import the GraphQL schema from the schema.graphql file
 
-require("dotenv").config();
+require("dotenv").config(); // Load environment variables from the .env file
 
 const resolvers = {
   Query: {
@@ -32,6 +32,6 @@ const server = new ApolloServer({
 
 // Set timeout and start server
 server.timeout = 0;
-server.listen("9000").then(({ url }) => {
+server.listen("9000").then(({ url }) => { // Start server on port 9000
   console.log(`🚀 Server ready at ${url}
 });
